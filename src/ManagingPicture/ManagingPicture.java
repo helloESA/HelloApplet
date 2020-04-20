@@ -6,20 +6,28 @@
 package ManagingPicture;
 
 import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 
 /**
  *
  * @author MohamadEsa
+ * Sumber : https://www.youtube.com/watch?v=w10EcS7wdQw
  */
 public class ManagingPicture extends Applet {
 
-    /**
-     * Initialization method that will be called after the applet is loaded into
-     * the browser.
-     */
+    Image img;
+    
     public void init() {
-        // TODO start asynchronous download of heavy resources
+        img = getImage(getDocumentBase(), "download (2).png");   
     }
-
-    // TODO overwrite start(), stop() and destroy() methods
+    
+    @Override
+    public void paint(Graphics grphcs) {
+        grphcs.drawImage(img, 30, 30, this);
+        grphcs.drawString("Logo Java", 30, 30);
+        grphcs.drawString("Lokasi File Berada di : "+getCodeBase(), 30, 350);
+    }
 }
